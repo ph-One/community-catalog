@@ -1,7 +1,7 @@
 version: '2'
 services:
   gogs:
-    image: gogs/gogs:0.11.19
+    image: gogs/gogs:0.11.29
     volumes:
       - gogs-data:/data/gogs
 {{- if ne .Values.db_link ""}}
@@ -21,7 +21,7 @@ services:
       - gogs-db:/var/lib/mysql
 {{- end}}
   lb:
-    image: rancher/lb-service-haproxy:v0.6.4
+    image: rancher/lb-service-haproxy:v0.7.10
     ports:
     - ${http_port}:${http_port}/tcp
     - ${ssh_port}:${ssh_port}/tcp
